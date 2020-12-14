@@ -1,5 +1,6 @@
 import React from 'react';
 import './Quiz.css';
+
 const option = ['a) E=m2c', 'b) E=mc2', 'c) E=mc', 'd) E=m/c'];
 
 const Quiz = () => {
