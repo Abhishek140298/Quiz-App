@@ -1,0 +1,21 @@
+.main_box{
+	background-color:#52f099e7;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 100vh;
+
+
+}
+.select_quiz_box{
+	background-color: azure;
+	width: 400px;
+	height: 40px;
+	border-radius: 5px;
+	display:flex;
+	margin-top: 20px;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+
+}
