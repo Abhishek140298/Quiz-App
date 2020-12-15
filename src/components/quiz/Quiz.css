@@ -2,19 +2,80 @@
   background-color: rgb(0, 255, 149);
   display: flex;
   flex-direction: column;
+	
   height: 100vh;
 }
 .question_box {
 	display: flex;
 	flex-direction: column;
+	background-color: #8252a8;
+	
+	margin-right: 5px;
+	border-radius: 10px;
+	margin-left: 30vw;
+	
+	padding: 20px;
+	
 }
 .question {
-  background-color: blueviolet;
+  background-color:#8252a8;
+	color: black;
+	
+
 	font-size: 20px;
+	
+	
 }
 .options{
-	background-color: green;
+	background-color:white;
+	width: fit-content;
+	margin-top: 10px;
+	height: 5vh;
+	width: 25vw;
+	border-radius: 5px;
+	display: flex;
+	align-items: center;
+	cursor:pointer;
+	padding-left: 5px;
+
+
 }
 .response{
-	background-color: brown;
+	margin: auto;
 }
+.submit_button{
+	margin-right: 30px;
+ padding: 15px;
+	background-color:#219621;
+	border-radius: 5px;
+	cursor: pointer;
+	
+}
+.cancel_button{
+padding: 15px;
+	background-color: #d10000;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.skip_button{
+	margin-left: 30px;
+	padding: 15px;
+	background-color: #668000;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.h2_heading{
+	text-align: center;
+}
+.image_box{
+	
+	display: flex;
+}
+.question_image{
+	width: 27vw;
+	height: 45vh;
+	margin-left: 70px;
+ border-radius: 10px;
+ transform: rotate(-3deg);	
+	}
