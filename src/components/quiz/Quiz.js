@@ -8,7 +8,7 @@ const Quiz = () => {
     <div className='quiz_box'>
       <h2 className='h2_heading'>SCIENCE QUIZ</h2>
       <div className='image_box'>
-      <img className='question_image' src='https://thumbs.dreamstime.com/z/surprise-albert-einstein-stand-question-mark-136009956.jpg'/>
+      <img className='question_image' src='https://media.istockphoto.com/vectors/question-mark-and-brain-like-quiz-concept-of-quizz-time-mind-vector-id962650244'/>
       <div className='question_box'>
       <span className='question'>
         What is the Einten's energy conservation ?
