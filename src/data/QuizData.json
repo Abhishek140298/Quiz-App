@@ -2,7 +2,7 @@
   {
     "id": "0",
     "quizName": "SCIENCE QUIZ",
-    "q/a": [
+    "q_a": [
       {
         "question": "Humans and chimpanzees share roughly how much DNA?",
         "options": ["98%", "70%", "97%", "96.5%"],
@@ -63,7 +63,7 @@
   {
     "id": "1",
     "quizName": "MATHEMATICS QUIZ",
-    "q/a": [
+    "q_a": [
       {
         "question": "If Logx (1 / 8) = - 3 / 2, then x is equal to",
         "options": ["-4", "4", "1/4", "10"],
@@ -139,7 +139,7 @@
   {
     "id": "2",
     "quizName": "GENERAL KNOWLDGE",
-    "q/a": [
+    "q_a": [
       {
         "question": "Grand Central Terminal, Park Avenue, New York is the world's",
         "options": [

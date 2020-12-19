@@ -8,7 +8,7 @@ const Home = (props) => {
   useEffect(() => {
     props.getQuizData();
   }, []);
-  
+  console.log(props.quizData);
   return (
     
     <div className='main_box'>
