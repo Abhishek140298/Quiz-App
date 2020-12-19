@@ -10,7 +10,7 @@ export default class App extends React.Component {
       <>
       <Switch>
         <Route path='/' exact component={Home}/>
-        <Route path='/quiz' exact component={Quiz}/>
+        <Route path='/quiz/:id' exact component={Quiz}/>
         </Switch>
       </>
     );
