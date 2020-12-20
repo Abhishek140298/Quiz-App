@@ -6,7 +6,10 @@ import { getQuizData } from '../../action/QuizDataAction';
 const Quiz = (props) => {
   const [currentPage, setCurrentPage] = useState(0);
   const [optionColor, setOptionColor] = useState('');
-  const [spanId, setSpanId] = useState();
+  const [spanId, setSpanId] = useState(-1);
+  const [score,setScore]=useState(0)
+  
+
 
   useEffect(() => {
     props.getQuizData();
@@ -22,13 +25,21 @@ const Quiz = (props) => {
   };
   const reduceCurrentPage = () => {
     if (currentPage > 0) {
-      return setCurrentPage(currentPage - 1);
+      return setCurrentPage(currentPage - 1),setSpanId(-1)
     }
   };
   const optionSelect = (e) => {
     return setOptionColor('#008000	'), setSpanId(e.target.id);
   };
-
+  const onClickSubmit=()=>{
+    if(spanId===questions[currentPage].correctAnswer){
+      return setScore(score+1),console.log("score",score),setCurrentPage(currentPage+1),setSpanId(-1) }
+      else{
+        return setCurrentPage(currentPage+1,setSpanId(-1))
+      }
+     
+  }
+ 
   return (
     <div className='quiz_box'>
       <h2 className='h2_heading'>SCIENCE QUIZ</h2>
@@ -62,7 +73,7 @@ const Quiz = (props) => {
         </div>
       </div>
       <div className='response'>
-        <span className='submit_button'>SUBMIT</span>
+        <span className='submit_button' onClick={onClickSubmit}>SUBMIT</span>
         <span className='cancel_button' onClick={reduceCurrentPage}>
           CANCEL
         </span>
