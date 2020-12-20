@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react';
 import './Quiz.css';
 import { connect } from 'react-redux';
 import { getQuizData } from '../../action/QuizDataAction';
+import Score from '../score/Score';
 
 const Quiz = (props) => {
   const [currentPage, setCurrentPage] = useState(0);
   const [optionColor, setOptionColor] = useState('');
   const [spanId, setSpanId] = useState(-1);
-  const [score,setScore]=useState(0)
-  
-
+  const [score, setScore] = useState(0);
+  const [scoreOpen, setScoreOpen] = useState(false);
 
   useEffect(() => {
     props.getQuizData();
@@ -19,27 +19,41 @@ const Quiz = (props) => {
   const questions = props.quizData[props.match.params.id].q_a;
 
   const changeCurrentPage = () => {
-    if (currentPage < 9) {
-      return setCurrentPage(currentPage + 1);
+    if (!scoreOpen) {
+      if (currentPage < 9) {
+        return setCurrentPage(currentPage + 1);
+      }
+    } else {
+      alert('You have completed your quiz');
     }
   };
   const reduceCurrentPage = () => {
-    if (currentPage > 0) {
-      return setCurrentPage(currentPage - 1),setSpanId(-1)
+    if (!scoreOpen) {
+      if (currentPage > 0) {
+        return setCurrentPage(currentPage - 1), setSpanId(-1);
+      }
+    } else {
+      alert('You have completed your test');
     }
   };
   const optionSelect = (e) => {
     return setOptionColor('#008000	'), setSpanId(e.target.id);
   };
-  const onClickSubmit=()=>{
-    if(spanId===questions[currentPage].correctAnswer){
-      return setScore(score+1),console.log("score",score),setCurrentPage(currentPage+1),setSpanId(-1) }
-      else{
-        return setCurrentPage(currentPage+1,setSpanId(-1))
+  const onClickSubmit = () => {
+    if (currentPage < 9) {
+      if (spanId === questions[currentPage].correctAnswer) {
+        return (
+          setScore(score + 1), setSpanId(-1), setCurrentPage(currentPage + 1)
+        );
+      } else {
+        return setCurrentPage(currentPage + 1, setSpanId(-1));
       }
-     
-  }
- 
+    } else if (currentPage === 9) {
+      return setScoreOpen(true);
+    }
+  };
+  console.log(!scoreOpen);
+
   return (
     <div className='quiz_box'>
       <h2 className='h2_heading'>SCIENCE QUIZ</h2>
@@ -59,7 +73,9 @@ const Quiz = (props) => {
                       className='options'
                       id={index}
                       style={
-                        spanId== index ? { backgroundColor: optionColor } : null
+                        spanId == index
+                          ? { backgroundColor: optionColor }
+                          : null
                       }
                       onClick={optionSelect}
                     >
@@ -73,14 +89,17 @@ const Quiz = (props) => {
         </div>
       </div>
       <div className='response'>
-        <span className='submit_button' onClick={onClickSubmit}>SUBMIT</span>
+        <span className='submit_button' onClick={onClickSubmit}>
+          SUBMIT
+        </span>
         <span className='cancel_button' onClick={reduceCurrentPage}>
           CANCEL
         </span>
         <span className='skip_button' onClick={changeCurrentPage}>
-          SKIP
+          NEXT
         </span>
       </div>
+      {scoreOpen ? <Score score={score} /> : null}
     </div>
   );
 };
